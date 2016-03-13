@@ -1,3 +1,16 @@
+--A few tables to simplify.
+Skins = {
+{"zombie01.png"},
+{"zombie02.png"},
+{"zombie03.png"},
+{"zombie04.png"},
+}
+
+Inventory = {
+{name = "default:dirt", chance = 2, min = 3, max = 5},
+{name = "cityscape:canned_food", chance = 4, min = 2, max = 5},
+}
+
 mobs:register_mob('zombies:1arm', {
 	type = "monster",
 	passive = false,
@@ -11,29 +24,24 @@ mobs:register_mob('zombies:1arm', {
 	collisionbox = {-0.4, -1, -0.4, 0.4, 0.8, 0.4},
 	visual = "mesh",
 	mesh = "zombie_one-arm.b3d",
-	textures = {
-		{"zombie01.png"},
-		{"zombie02.png"},
-		{"zombie03.png"},
-	},
+	textures = Skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
 --	sounds = {
 --		random = "mobs_treemonster",
 --	},
-	walk_velocity = 1,
-	run_velocity = 2,
+	walk_velocity = 2,
+	run_velocity = 4,
 	jump = true,
 	view_range = 15,
-	drops = {
-		{name = "default:dirt", chance = 1, min = 3, max = 5},
-	},
+	drops = Inventory,
 	lava_damage = 5,
 	light_damage = 0,
 	fall_damage = 2,
 	animation = {
-		speed_normal = 5,
+		speed_normal = 10,
 		speed_run = 10,
+		punch_speed = 20,
 		walk_start = 0,
 		walk_end = 20,
 		run_start = 0,
@@ -53,14 +61,10 @@ mobs:register_mob('zombies:crawler', {
 	hp_min = 1,
 	hp_max = 10,
 	armor = 80,
-	collisionbox = {-0.5, -1, -0.4, 0.5, 0.2, 0.4},
+	collisionbox = {-0.5, -.5, -0.4, 0.5, 0.2, 0.4},
 	visual = "mesh",
 	mesh = "zombie_crawler.b3d",
-	textures = {
-		{"zombie01.png"},
-		{"zombie02.png"},
-		{"zombie03.png"},
-	},
+	textures = Skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
 --	sounds = {
@@ -70,9 +74,7 @@ mobs:register_mob('zombies:crawler', {
 	run_velocity = 1,
 	jump = true,
 	view_range = 15,
-	drops = {
-		{name = "default:dirt", chance = 1, min = 3, max = 5},
-	},
+	drops = Inventory,
 	lava_damage = 5,
 	light_damage = 0,
 	fall_damage = 2,
@@ -89,11 +91,55 @@ mobs:register_mob('zombies:crawler', {
 	},
 })
 
+mobs:register_mob('zombies:normal', {
+	type = "monster",
+	passive = false,
+	attack_type = "dogfight",
+	pathfinding = true,
+	reach = 2,
+	damage = 1,
+	hp_min = 1,
+	hp_max = 10,
+	armor = 80,
+	collisionbox = {-0.4, -1, -0.4, 0.4, 0.8, 0.4},
+	visual = "mesh",
+	mesh = "zombie_normal.b3d",
+	textures = Skins,
+	blood_texture = "default_wood.png",
+	makes_footstep_sound = true,
+--	sounds = {
+--		random = "mobs_treemonster",
+--	},
+	walk_velocity = 2,
+	run_velocity = 4,
+	jump = true,
+	view_range = 15,
+	drops = Inventory,
+	lava_damage = 5,
+	light_damage = 0,
+	fall_damage = 2,
+	animation = {
+		speed_normal = 20,
+		speed_run = 20,
+		punch_speed = 20,
+		stand_start = 0,
+            	stand_end = 40,
+		walk_start = 41,
+		walk_end = 101,
+		run_start = 41,
+		run_end = 101,
+		punch_start = 102,
+		punch_end = 142,
+	},
+})
+
 
 --Spawn Functions
 mobs:register_spawn("zombies:1arm", {"cityscape:road_broken", "cityscape:sidewalk_broken"},14, 0, 70, 10, 170, false)
 mobs:register_spawn("zombies:crawler", {"cityscape:road_broken", "cityscape:sidewalk_broken"},14, 0, 70, 10, 170, false)
+mobs:register_spawn("zombies:normal", {"cityscape:road_broken", "cityscape:sidewalk_broken"},14, 0, 70, 10, 170, false)
 
 --Spawn Eggs
 mobs:register_egg("zombies:1arm", "One Armed Zombie", "something.png", 1)
 mobs:register_egg("zombies:crawler", "Crawling Zombie", "something.png", 1)
+mobs:register_egg("zombies:normal", "Normal Zombie", "something.png", 1)
