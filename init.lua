@@ -11,6 +11,11 @@ Inventory = {
 {name = "cityscape:canned_food", chance = 4, min = 2, max = 5},
 }
 
+Noise = {
+random = "eating-brains",
+attack = "groan",
+}
+
 mobs:register_mob('zombies:1arm', {
 	type = "monster",
 	passive = false,
@@ -27,9 +32,7 @@ mobs:register_mob('zombies:1arm', {
 	textures = Skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
---	sounds = {
---		random = "mobs_treemonster",
---	},
+	sounds = Noise,
 	walk_velocity = 2,
 	run_velocity = 4,
 	jump = true,
@@ -67,9 +70,7 @@ mobs:register_mob('zombies:crawler', {
 	textures = Skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
---	sounds = {
---		random = "mobs_treemonster",
---	},
+	sounds = Noise,
 	walk_velocity = .5,
 	run_velocity = 1,
 	jump = true,
@@ -107,9 +108,7 @@ mobs:register_mob('zombies:normal', {
 	textures = Skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
---	sounds = {
---		random = "mobs_treemonster",
---	},
+	sounds = Noise,
 	walk_velocity = 2,
 	run_velocity = 4,
 	jump = true,
