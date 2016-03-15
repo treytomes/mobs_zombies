@@ -8,7 +8,8 @@ Skins = {
 
 Inventory = {
 {name = "default:dirt", chance = 2, min = 3, max = 5},
-{name = "cityscape:canned_food", chance = 4, min = 2, max = 5},
+{name = "default:apple", chance = 4, min = 2, max = 5},
+{name = "default:clay_lump", chance = 10, min = 1, max = 4},
 }
 
 Noise = {
