@@ -4,6 +4,9 @@ local path = minetest.get_modpath("mobs_zombies")
 dofile(path .. "/intllib.lua")
 S = mobs.intllib
 
+-- day_toggle = true for day spawning, false for night or nil for anytime
+local day_toggle = nil
+
 minetest.register_craftitem(":mobs_zombies:rotten_flesh", {
 	description = "Rotten Flesh",
 	inventory_image = "rotten_flesh.png",
@@ -85,7 +88,8 @@ local zombie_def_default = {
 mobs:register_mob('mobs_zombies:normal', default_zombie_def)
 
 --Spawn Function
-mobs:register_spawn("mobs_zombies:normal", spawn_nodes, 15, 0, 70, 10, 170, false)
+-- params: name, nodes, max_light, min_light, chance, active_object_count, max_height, day_toggle
+mobs:register_spawn("mobs_zombies:normal", spawn_nodes, 15, 0, 70, 10, 170, day_toggle)
 
 --Spawn Eggs
 mobs:register_egg("mobs_zombies:normal", S("Normal Zombie"), "zombie_egg.png", 1)
@@ -113,7 +117,7 @@ zombie_def_1arm.animation = {
 mobs:register_mob('mobs_zombies:1arm', zombie_def_1arm)
 
 --Spawn Function
-mobs:register_spawn("mobs_zombies:1arm", spawn_nodes, 15, 0, 70, 10, 170, false)
+mobs:register_spawn("mobs_zombies:1arm", spawn_nodes, 15, 0, 70, 10, 170, day_toggle)
 
 --Spawn Eggs
 mobs:register_egg("mobs_zombies:1arm", S("One Armed Zombie"), "zombie_egg.png", 1)
@@ -141,7 +145,7 @@ zobie_def_crawler.animation = {
 mobs:register_mob('mobs_zombies:crawler', zobie_def_crawler)
 
 --Spawn Function
-mobs:register_spawn("mobs_zombies:crawler", spawn_nodes,15, 0, 70, 10, 170, false)
+mobs:register_spawn("mobs_zombies:crawler", spawn_nodes,15, 0, 70, 10, 170, day_toggle)
 
 --Spawn Eggs
 mobs:register_egg("mobs_zombies:crawler", S("Crawling Zombie"), "zombie_egg.png", 1)
