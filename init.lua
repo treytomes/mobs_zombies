@@ -16,6 +16,7 @@ skins = {
 	{ "zombie02.png" },
 	{ "zombie03.png" },
 	{ "zombie04.png" },
+	{ "zombie05.png" }
 }
 
 local spawn_nodes = {
@@ -30,7 +31,7 @@ inventory = {
 	{ name = "default:steel_ingot", chance = 10, min = 1, max = 4 },
 }
 
-Noise = {
+local zombie_sounds = {
 	random = "eating-brains",
 	attack = "groan",
 }
@@ -51,7 +52,7 @@ mobs:register_mob('mobs_zombies:1arm', {
 	textures = skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
-	sounds = Noise,
+	sounds = zombie_sounds,
 	walk_velocity = 2,
 	run_velocity = 4,
 	jump = true,
@@ -97,7 +98,7 @@ mobs:register_mob('mobs_zombies:crawler', {
 	textures = skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
-	sounds = Noise,
+	sounds = zombie_sounds,
 	walk_velocity = .5,
 	run_velocity = 1,
 	jump = true,
@@ -143,7 +144,7 @@ mobs:register_mob('mobs_zombies:normal', {
 	textures = skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
-	sounds = Noise,
+	sounds = zombie_sounds,
 	walk_velocity = 2,
 	run_velocity = 4,
 	jump = true,
