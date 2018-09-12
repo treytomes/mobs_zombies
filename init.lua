@@ -4,6 +4,12 @@ local path = minetest.get_modpath("mobs_zombies")
 dofile(path .. "/intllib.lua")
 S = mobs.intllib
 
+core.register_craftitem(":mobs_zombies:rotten_flesh", {
+	description = "Rotten Flesh",
+	inventory_image = "rotten_flesh.png",
+	on_use = core.item_eat(1),
+})
+
 --A few tables to simplify.
 skins = {
 	{ "zombie01.png" },
@@ -18,10 +24,10 @@ local spawn_nodes = {
 	"default:cobblestone", "default:mossycobble", "group:sand"
 }
 
-Inventory = {
-	{ name = "default:dirt", chance = 2, min = 3, max = 5 },
+inventory = {
+	{ name = "mobs_zombies:rotten_flesh", chance = 2, min = 3, max = 5 },
 	{ name = "default:apple", chance = 4, min = 2, max = 5 },
-	{ name = "default:clay_lump", chance = 10, min = 1, max = 4 },
+	{ name = "default:steel_ingot", chance = 10, min = 1, max = 4 },
 }
 
 Noise = {
@@ -50,7 +56,7 @@ mobs:register_mob('mobs_zombies:1arm', {
 	run_velocity = 4,
 	jump = true,
 	view_range = 15,
-	drops = Inventory,
+	drops = inventory,
 	lava_damage = 5,
 	light_damage = 0,
 	fall_damage = 2,
@@ -96,7 +102,7 @@ mobs:register_mob('mobs_zombies:crawler', {
 	run_velocity = 1,
 	jump = true,
 	view_range = 15,
-	drops = Inventory,
+	drops = inventory,
 	lava_damage = 5,
 	light_damage = 0,
 	fall_damage = 2,
@@ -142,7 +148,7 @@ mobs:register_mob('mobs_zombies:normal', {
 	run_velocity = 4,
 	jump = true,
 	view_range = 15,
-	drops = Inventory,
+	drops = inventory,
 	lava_damage = 5,
 	light_damage = 0,
 	fall_damage = 2,
