@@ -1,0 +1,14 @@
+# Template for translations of mobs_zombies mod
+# last update: 2018/September/12
+
+#init.lua
+[MOD] Mobs Zombies loaded = 
+One Armed Zombie = 
+Crawling Zombie = 
+Normal Zombie = 
+
+
+#lava_flan.lua
+Lava Flan = 
+Lava orb = 
+Lava Pickaxe = 

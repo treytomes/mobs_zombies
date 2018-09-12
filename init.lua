@@ -1,23 +1,28 @@
+local path = minetest.get_modpath("mobs_zombies")
+
+-- Intllib
+dofile(path .. "/intllib.lua")
+
 --A few tables to simplify.
 Skins = {
-{"zombie01.png"},
-{"zombie02.png"},
-{"zombie03.png"},
-{"zombie04.png"},
+	{ "zombie01.png" },
+	{ "zombie02.png" },
+	{ "zombie03.png" },
+	{ "zombie04.png" },
 }
 
 Inventory = {
-{name = "default:dirt", chance = 2, min = 3, max = 5},
-{name = "default:apple", chance = 4, min = 2, max = 5},
-{name = "default:clay_lump", chance = 10, min = 1, max = 4},
+	{ name = "default:dirt", chance = 2, min = 3, max = 5 },
+	{ name = "default:apple", chance = 4, min = 2, max = 5 },
+	{ name = "default:clay_lump", chance = 10, min = 1, max = 4 },
 }
 
 Noise = {
-random = "eating-brains",
-attack = "groan",
+	random = "eating-brains",
+	attack = "groan",
 }
 
-mobs:register_mob('zombies:1arm', {
+mobs:register_mob('mobs_zombies:1arm', {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -55,7 +60,16 @@ mobs:register_mob('zombies:1arm', {
 	},
 })
 
-mobs:register_mob('zombies:crawler', {
+--Spawn Function
+mobs:register_spawn("mobs_zombies:1arm",
+	{"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
+
+--Spawn Eggs
+mobs:register_egg("mobs_zombies:1arm", S("One Armed Zombie"), "zombie_egg.png", 1)
+
+-------------------------------------
+
+mobs:register_mob('mobs_zombies:crawler', {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -93,7 +107,16 @@ mobs:register_mob('zombies:crawler', {
 	},
 })
 
-mobs:register_mob('zombies:normal', {
+--Spawn Function
+mobs:register_spawn("mobs_zombies:crawler",
+	{"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
+
+--Spawn Eggs
+mobs:register_egg("mobs_zombies:crawler", S("Crawling Zombie"), "zombie_egg.png", 1)
+
+-------------------------------------
+
+mobs:register_mob('mobs_zombies:normal', {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -123,7 +146,7 @@ mobs:register_mob('zombies:normal', {
 		speed_run = 20,
 		punch_speed = 20,
 		stand_start = 0,
-            	stand_end = 40,
+		stand_end = 40,
 		walk_start = 41,
 		walk_end = 101,
 		run_start = 41,
@@ -133,13 +156,13 @@ mobs:register_mob('zombies:normal', {
 	},
 })
 
-
---Spawn Functions
-mobs:register_spawn("zombies:1arm", {"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
-mobs:register_spawn("zombies:crawler", {"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
-mobs:register_spawn("zombies:normal", {"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
+--Spawn Function
+mobs:register_spawn("mobs_zombies:normal",
+	{"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
 
 --Spawn Eggs
-mobs:register_egg("zombies:1arm", "One Armed Zombie", "something.png", 1)
-mobs:register_egg("zombies:crawler", "Crawling Zombie", "something.png", 1)
-mobs:register_egg("zombies:normal", "Normal Zombie", "something.png", 1)
+mobs:register_egg("mobs_zombies:normal", S("Normal Zombie"), "zombie_egg.png", 1)
+
+-------------------------------------
+
+minetest.log("action", S("[MOD] Mobs Zombies loaded"))
