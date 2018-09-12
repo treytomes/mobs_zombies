@@ -2,13 +2,20 @@ local path = minetest.get_modpath("mobs_zombies")
 
 -- Intllib
 dofile(path .. "/intllib.lua")
+S = mobs.intllib
 
 --A few tables to simplify.
-Skins = {
+skins = {
 	{ "zombie01.png" },
 	{ "zombie02.png" },
 	{ "zombie03.png" },
 	{ "zombie04.png" },
+}
+
+local spawn_nodes = {
+	"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",
+	"default:stone", "default:dirt_with_grass", "default:dirt",
+	"default:cobblestone", "default:mossycobble", "group:sand"
 }
 
 Inventory = {
@@ -35,7 +42,7 @@ mobs:register_mob('mobs_zombies:1arm', {
 	collisionbox = {-0.4, -1, -0.4, 0.4, 0.8, 0.4},
 	visual = "mesh",
 	mesh = "zombie_one-arm.b3d",
-	textures = Skins,
+	textures = skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
 	sounds = Noise,
@@ -61,8 +68,7 @@ mobs:register_mob('mobs_zombies:1arm', {
 })
 
 --Spawn Function
-mobs:register_spawn("mobs_zombies:1arm",
-	{"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
+mobs:register_spawn("mobs_zombies:1arm", spawn_nodes, 15, 0, 70, 10, 170, false)
 
 --Spawn Eggs
 mobs:register_egg("mobs_zombies:1arm", S("One Armed Zombie"), "zombie_egg.png", 1)
@@ -82,7 +88,7 @@ mobs:register_mob('mobs_zombies:crawler', {
 	collisionbox = {-0.5, -.5, -0.4, 0.5, 0.2, 0.4},
 	visual = "mesh",
 	mesh = "zombie_crawler.b3d",
-	textures = Skins,
+	textures = skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
 	sounds = Noise,
@@ -108,8 +114,7 @@ mobs:register_mob('mobs_zombies:crawler', {
 })
 
 --Spawn Function
-mobs:register_spawn("mobs_zombies:crawler",
-	{"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
+mobs:register_spawn("mobs_zombies:crawler", spawn_nodes,15, 0, 70, 10, 170, false)
 
 --Spawn Eggs
 mobs:register_egg("mobs_zombies:crawler", S("Crawling Zombie"), "zombie_egg.png", 1)
@@ -129,7 +134,7 @@ mobs:register_mob('mobs_zombies:normal', {
 	collisionbox = {-0.4, -1, -0.4, 0.4, 0.8, 0.4},
 	visual = "mesh",
 	mesh = "zombie_normal.b3d",
-	textures = Skins,
+	textures = skins,
 	blood_texture = "default_wood.png",
 	makes_footstep_sound = true,
 	sounds = Noise,
@@ -157,8 +162,7 @@ mobs:register_mob('mobs_zombies:normal', {
 })
 
 --Spawn Function
-mobs:register_spawn("mobs_zombies:normal",
-	{"cityscape:road_broken", "cityscape:sidewalk_broken", "default:gravel",},15, 0, 70, 10, 170, false)
+mobs:register_spawn("mobs_zombies:normal", spawn_nodes, 15, 0, 70, 10, 170, false)
 
 --Spawn Eggs
 mobs:register_egg("mobs_zombies:normal", S("Normal Zombie"), "zombie_egg.png", 1)
