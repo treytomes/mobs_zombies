@@ -2,6 +2,7 @@
 # last update: 2018/September/12
 
 #init.lua
+Rotten Flesh = 
 [MOD] Mobs Zombies loaded = 
 One Armed Zombie = 
 Crawling Zombie = 
